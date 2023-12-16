@@ -1,11 +1,14 @@
 const express = require('express');
+const cors = require('cors');
 const routes = require('./routes');
 const { logHandler } = require('./middleware/log.midleware');
 const { errorHandler } = require('./middleware/error.middleware');
+const corsOptions = require('./config/corsOptions');
 
 const app = express();
 
 app.use(logHandler);
+app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
