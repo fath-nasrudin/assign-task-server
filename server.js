@@ -1,10 +1,4 @@
-const express = require('express');
-
-const app = express();
-
-app.use(express.urlencoded({ extended: true }));
+const app = require('./src/app');
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`server running on port ${3000}`));
