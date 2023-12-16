@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const routes = require('./routes');
 const { logHandler } = require('./middleware/log.midleware');
 const { errorHandler } = require('./middleware/error.middleware');
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(logHandler);
 app.use(cors(corsOptions));
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
