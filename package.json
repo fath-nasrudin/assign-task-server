@@ -21,6 +21,7 @@
     "nodemon": "^3.0.2"
   },
   "dependencies": {
+    "async-handler": "^0.0.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "date-fns": "^2.30.0",
