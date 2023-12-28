@@ -45,6 +45,7 @@ const createUser = asyncHandler(async (req, res) => {
   const userData = {
     username,
     password: hashedPassword,
+    roles,
   };
 
   // Create and store new user
