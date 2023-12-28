@@ -1,5 +1,8 @@
 const router = require('express').Router();
 const userController = require('../controllers/user.controller');
+const { verifyJWT } = require('../middleware/auth.middleware');
+
+router.use(verifyJWT);
 
 router.route('/')
   .get(userController.getAllUsers)

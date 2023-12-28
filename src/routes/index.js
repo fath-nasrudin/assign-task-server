@@ -7,5 +7,6 @@ router.get('/', (req, res) => {
 
 router.use('/users', userRoutes);
 router.use('/notes', require('./note.route'));
+router.use('/auth', require('./auth.route'));
 
 module.exports = router;
