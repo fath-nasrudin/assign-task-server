@@ -69,7 +69,7 @@ const refresh = asyncHandler(async (req, res) => {
     refreshToken,
     process.env.REFRESH_TOKEN_SECRET,
     (async (error, decoded) => {
-      if (error) return res.status(401).json({ message: 'Unauthorized' });
+      if (error) return res.status(403).json({ message: 'Forbidden' });
 
       const foundUser = await User.findOne({ username: decoded.username }).exec();
 
