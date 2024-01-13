@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-});
+}, { collation: { locale: 'en', strength: 2 } });
 
 const UserModel = mongoose.model('User', userSchema);
 
