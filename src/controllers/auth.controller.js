@@ -31,7 +31,7 @@ const login = asyncHandler(async (req, res) => {
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
-      expiresIn: '10',
+      expiresIn: '15m',
     },
 
   );
@@ -47,7 +47,7 @@ const login = asyncHandler(async (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'None',
-    maxAge: 7 * 24 * 60 * 60 * 1000,
+    maxAge: (7) * 24 * 60 * 60 * 1000,
   });
 
   res.json({ accessToken });
@@ -94,11 +94,11 @@ const refresh = asyncHandler(async (req, res) => {
 // @desc Logout
 // @route POST /auth/logout
 // @access Public - just to clear cookie if exists
-const logout = asyncHandler(async (req, res) => {
+const logout = (req, res) => {
   const { cookies } = req;
   if (!cookies?.jwt) return res.sendStatus(204); // No content
   res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
-  return res.json({ message: 'Cookie cleared' });
-});
+  res.json({ message: 'Cookie cleared' });
+};
 
 module.exports = { login, refresh, logout };
